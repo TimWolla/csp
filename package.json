@@ -1,0 +1,24 @@
+{
+	"name": "csp",
+	"author": "Tim Düsterhus <tim@bastelstu.be>",
+	"license": "AGPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TimWolla/csp.git"
+	},
+	"dependencies": {
+		"express": ">=4.8 <5",
+		"debug": "*",
+		"rc": "^1.1.6",
+		"body-parser": "^1.15.0",
+		"nodemailer": "^2.3.2",
+		"lru-cache": "^4.0.1"
+	},
+	"scripts": {
+		"start": "node app.js"
+	},
+	"engines": { 
+		"node": ">=5.0.0"
+	}, 
+	"version": "1.0.0-beta.1"
+}
