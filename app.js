@@ -27,6 +27,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 const panic = () => { throw new Error("Cowardly refusing to keep the process alive as root") }
 if ((process.getuid && process.getuid() === 0) || (process.getgid && process.getgid() === 0)) panic()
 
+process.on('SIGINT', () => process.exit(0))
+process.on('SIGTERM', () => process.exit(0))
+
 const debug      = require('debug')('csp')
 const config     = require('rc')('csp', { bind: { port: 9001
                                                 , host: '0.0.0.0'
