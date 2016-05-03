@@ -46,7 +46,7 @@ const nodemailer = require('nodemailer')
 const lruCache   = require('lru-cache')
 
 if (!config.mail.transport || !config.mail.from || !config.mail.to) {
-        console.error('You need to configuree a mail transport, a mail from and a mail to')
+        console.error('You need to configure a mail transport, a mail from and a mail to.')
         process.exit(1)
 }
 
