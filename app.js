@@ -27,7 +27,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 const panic = () => { throw new Error("Cowardly refusing to keep the process alive as root") }
 if ((process.getuid && process.getuid() === 0) || (process.getgid && process.getgid() === 0)) panic()
 
-process.on('SIGINT', () => process.exit(0))
+process.on('SIGINT',  () => process.exit(0))
 process.on('SIGTERM', () => process.exit(0))
 
 const debug      = require('debug')('csp')
@@ -62,10 +62,10 @@ app.use(require('body-parser').json({ type: ['json', 'application/csp-report'] }
 
 app.post('/', (req, res) => {
         if (req.body) {
-                const mail = { from: config.mail.from
-                             , to: config.mail.to
+                const mail = { from   : config.mail.from
+                             , to     : config.mail.to
                              , subject: `CSP violation`
-                             , text: JSON.stringify(req.body)
+                             , text   : JSON.stringify(req.body)
                              }
                 if (deduper.has(mail.text)) {
                         debug('Report is a dupe')
